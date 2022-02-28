@@ -1,0 +1,23 @@
+{
+	"playlists" : "Playlists",
+	"search" : "Search",
+	"search_for" : "Search for songs..",
+	"song_download" : "Do you want to download '%song%'?",
+	"song_already_in_playlist_title" : "'%song%' is already in playlist",
+	"song_already_in_playlist_text" : "Do you want to add it anyway?",
+	"playlist_remove_text" : "You can't undo this action",
+	"playlist_remove_title" : "Remove '%playlist%' permanently?",
+	"playlist_create_new" : "Create new playlist",
+	"playlist_add" : "Add to playlist",
+	"playlist_name" : "Playlist name",
+	"songs_not_found" : "No songs found in your directory!;You can download songs or add them manualy.;Your song directory",
+	"success" : "Success",
+	"downloading" : "Downloading..",
+	"yes" : "Yes",
+	"no" : "No",
+	"local_storage" : "Local storage",
+	"message" : "Youtify",
+	"playlistPH" : "Ultimate playlist",
+	"playlist_already_exists" : "Playlist already exists",
+	"playlist_already_exists_text" : "Do you want to override it?"
+}

@@ -1,0 +1,405 @@
+:root {
+  --hr_gray_color: #282828;
+  --back_gray_color: #181818;
+  --font_gray_color: #b3b3b3;
+}
+* {
+  font-family: Arial;
+  margin: 0;
+}
+body {
+  background-color: var(--back_gray_color);
+  margin: 0;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#leftBar {
+  position: absolute;
+  width: 20vw;
+  height: 100%;
+  background: black;
+}
+
+#rightBar {
+  position: absolute;
+  right: 0%;
+  width: 15vw;
+  height: 100%;
+  background: black;
+}
+
+#bottomBar {
+  z-index: 10;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  height: 20%;
+  background-color: var(--back_gray_color);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#bottomBar img {
+  width: 4vw;
+  height: 4vw;
+  position: absolute;
+  left: 0%;
+}
+
+#bottomBar #next {
+  transform: translateX(150%);
+}
+#bottomBar #previous {
+  transform: translateX(-150%);
+}
+#bottomBar .btb-tools {
+  position: absolute;
+  top: 20%;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: var(--font_gray_color);
+  font-size: 150%;
+  transition: color 200ms ease;
+}
+#bottomBar .btb-tools:hover {
+  color: white;
+}
+
+#bottomBar #timeline {
+  width: 40%;
+  margin-top: 2%;
+}
+
+#bottomBar hr {
+  height: 2%;
+  margin: 0;
+  border-width: 0;
+  color: var(--hr_gray_color);
+  background-color: var(--hr_gray_color);
+}
+
+#toolButtons {
+  position: absolute;
+  right: 0%;
+  width: 15vw;
+  z-index: 10;
+  height: 2%;
+}
+
+#toolButtons div {
+  transition: color 50ms ease;
+  width: 20%;
+  height: 200%;
+  float: right;
+  text-align: center;
+  display: flex;
+}
+
+#toolButtons div a {
+  font-size: 100%;
+  text-align: center;
+  transition: color 50ms ease;
+  text-decoration: none;
+  color: white;
+  margin: auto auto;
+}
+
+[data-text]::after {
+  content: attr(data-text);
+}
+
+#toolButtons div:hover {
+  background-color: rgb(63, 63, 63);
+}
+
+#toolButtons div:nth-child(1):hover {
+  background-color: #cd1a2b;
+}
+
+.draggable {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+#topBar {
+  width: 85%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 32px;
+  z-index: -1;
+}
+
+#leftBar #search:hover,
+#leftBar #search:focus {
+  color: white;
+}
+
+#content {
+  position: absolute;
+  left: 20%;
+  top: 0%;
+  width: 65%;
+  height: 80%;
+  display: flex;
+  overflow-y: scroll;
+}
+
+#searchInput {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 24vw;
+  height: 4vw;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  margin: 5% auto;
+  padding-left: 1.3vw;
+  font-size: 1.5vw;
+  min-height: 40px;
+}
+
+.ytb-img {
+  display: block;
+  width: 480px;
+  height: 270px;
+  cursor: pointer;
+  margin: 0 auto 20px auto;
+  transition: 100ms ease-in-out;
+}
+
+.ytb-title {
+  display: block;
+  width: 320px;
+  color: white;
+  text-align: center;
+  margin: 0 auto 5% auto;
+  font-size: 120%;
+}
+
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#youtube-audio {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+#search {
+  margin: 20% 0 0 0;
+  color: var(--font_gray_color);
+  font-size: 2vw;
+  cursor: pointer;
+  transition: all 200ms ease;
+  border: none;
+  background: transparent;
+  word-spacing: 1.3vw;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  width: 100%;
+}
+
+#search::first-letter {
+  font-size: 3vw;
+  font-weight: normal;
+}
+#playlists {
+  color: var(--font_gray_color);
+  font-size: 2vw;
+  cursor: pointer;
+  transition: all 200ms ease;
+  border: none;
+  background: transparent;
+  word-spacing: 1.3vw;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 0 3% 0;
+  width: 100%;
+  margin: 0;
+  border-radius: 10px;
+}
+
+#playlists::first-letter {
+  font-size: 3vw;
+  font-weight: normal;
+}
+#playlists:hover,
+#playlists:focus {
+  color: white;
+}
+
+#youtube-0 {
+  margin-top: 6%;
+}
+#playlist-cont {
+  width: 100%;
+  height: 100%;
+}
+
+.playlist {
+  width: 80%;
+  height: 15%;
+  border-radius: 0.5rem;
+  display: flex;
+
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0 auto 4% auto;
+  background-color: #27282e;
+  opacity: 0.5;
+  transition: 100ms ease;
+  position: relative;
+  padding: 0 10% 0 0;
+}
+.playlist p {
+  color: white;
+  margin-left: 5%;
+  width: 80%;
+  text-align: left;
+}
+
+.playlist:hover,
+.playlist:focus,
+.song:hover,
+.song:focus {
+  opacity: 1;
+}
+
+.song {
+  width: 80%;
+  height: 15%;
+  border-radius: 0.5rem;
+  display: flex;
+
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 5% auto 0 auto;
+  background-color: #27282e;
+  opacity: 0.5;
+  transition: 100ms ease-in-out;
+  padding: 0 10% 0 0;
+  position: relative;
+}
+.song p {
+  color: white;
+  text-align: left;
+  margin-left: 5%;
+  display: block;
+  width: 80%;
+}
+
+.customText {
+  font-size: 2.5vw;
+  margin-bottom: 6%;
+  margin-top: 6%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#songs-cont {
+  width: 100%;
+  height: 100%;
+}
+
+.playlistH1 {
+  color: white;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 4%;
+}
+.notFound {
+  position: relative;
+  width: 80%;
+  margin: 10px auto 0 auto;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  top: 40%;
+}
+
+#openSongExplorer {
+  color: var(--font_gray_color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#bottomBar p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18%;
+  height: 80%;
+  color: white;
+  position: absolute;
+  left: 1%;
+  font-size: 120%;
+  text-align: left;
+}
+/* searched songs*/
+.ytb-img:hover {
+  transform: scale(1.05);
+}
+/* downloaded songs are green*/
+.downloaded {
+  background-color: #1f3c23;
+}
+/*  icon for removing songs from playlist  */
+.removePlBtn {
+  background-image: url("./images/remove.png");
+  background-position: center;
+  position: absolute;
+  right: 1%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 8%;
+  aspect-ratio: 1;
+  z-index: 10;
+  transition: 100ms ease;
+}
+.removePlBtn:hover,
+.removePlBtn:focus,
+.addPlButton:focus,
+.addPlButton:hover {
+  transform: scale(1.05);
+}
+.addPlButton {
+  position: absolute;
+  right: 10%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 8%;
+  aspect-ratio: 1;
+  z-index: 10;
+  transition: 100ms ease;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}

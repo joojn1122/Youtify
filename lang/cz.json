@@ -1,0 +1,19 @@
+{
+	"playlists" : "Playlisty",
+	"search" : "Hledat",
+	"search_for" : "Hledat písničky..",
+	"song_download" : "Chete stáhnout '%song%'?",
+	"song_already_in_playlist_title" : "Playlist již obsahuje '%song%'",
+	"song_already_in_playlist_text" : "Chcete ji přesto přidat?",
+	"playlist_remove_text" : "Tato akce nelze vrátit",
+	"playlist_remove_title" : "Odstranit '%playlist%' trvale?",
+	"playlist_create_new" : "Vytvořit nový playlist",
+	"playlist_add" : "Přidat do playlistu",
+	"playlist_name" : "Název playlistu",
+	"songs_not_found" : "Žádné písničky nebyly nalezeny ve vašem adresáři!;Můžete stáhnout písničky nebo je přidat ručně.;Váš adresář písniček",
+	"success" : "Úspěch",
+	"downloading" : "Stahování..",
+	"yes" : "Ano",
+	"no" : "Ne",
+	"local_storage" : "Lokální úložiště"
+}

@@ -1,0 +1,11 @@
+{
+    "songsPath": "%dirname%\\songs",
+    "playlistsPath": "%dirname%\\playlists",
+    "ffmpegPath": "%dirname%\\ffmpeg\\ffmpeg.exe",
+    "volume": 17,
+    "currentSong": "Fall Out Boy - THE PHOENIX (Kinetic Typography Lyrics).mp3",
+    "currentSongTitle": "Fall Out Boy - THE PHOENIX (Kinetic Typography Lyrics)",
+    "loop": 0,
+    "currentLang": "%dirname%\\lang\\en.json",
+    "random": 0
+}

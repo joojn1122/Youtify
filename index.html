@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="scrollbar.css">
+    <title>Youtify</title>
+  </head>
+  <body>
+        <div id="content">
+          </div>
+        </div>
+        <div id="topBar" class="draggable">
+        </div>
+        <div id = "leftBar">
+          <button id = "search" data-text="⌕ Search"></button>
+          <button id = "playlists" data-text = "⌂ Playlists"></button>
+          <div id = "bg-mover" ></div>  
+        </div>
+        <div id = "rightBar"></div>
+        <div cc="⇒⇐" id = "bottomBar"><hr>
+        <p id = "currentSongName" data-text=""></p>
+        <template>
+          <style>
+            #volume-man{
+              position: absolute;
+              top:2%;
+              width:100%;
+              height:5%;
+              display:flex;
+              justify-content: flex-end;
+              float:right;
+              
+            }
+            
+            #volume-man *{
+              margin:0;
+              font-size:19px;
+              background-color: transparent;
+              outline: none;
+              border:none;
+              float:right;
+              position: absolute;
+              right:2%;
+              
+              text-align: end;
+            }
+            #random-icon{
+              width:25px;
+              height:25px;
+              cursor: pointer;
+              position: relative;
+              transform: translate(-50%, 75%);
+            }
+            #mute-icon{
+              width:25px;
+              height:25px;
+              cursor: pointer;
+            }
+
+          .unselectable {
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+          #loop-icon{
+                position: relative;
+                left:150%;
+                transform: translateY(70%);
+                width:20px;
+                height:20px;
+                
+          }
+              #play-icon{
+                position: absolute;
+                color:white;
+                width:50px;
+                height:50px;
+              }
+              #audio-tools {
+                  position: absolute;
+                  left:50%;
+                  top: 1%;
+                  transform: translateX(-50%);
+                  z-index: 10;
+                  
+              }
+              #audio-tools img{
+                  padding: 0;
+                  border: 0;
+                  color: #B3B3B3;
+                  background: transparent;
+
+                  outline: none;
+                  cursor: pointer;
+              }
+
+              #audio-player-container {
+                  position:relative;
+                  width: 100%;
+                  height: 100%;
+                  font-family: Arial, Helvetica, sans-serif;
+                  --seek-before-width: 0%;
+                  --volume-before-width: 100%;
+                  --buffered-width: 0%;
+                  letter-spacing: -0.5px;
+              }
+              #timeLine{
+                width:100%;
+                height:5%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: flex-end;
+                color:#B3B3B3;
+                position: fixed;
+                bottom:2%;
+              }
+              #timeLine *{
+                display:flex;
+                justify-content: center;
+                
+                flex-wrap: wrap;
+                margin:0 10px;
+              }
+
+
+              #volume-slider {
+                  position:absolute;
+                  top:5%;
+                  right:0;
+                  margin-right:5%;
+                  
+                  width: 10%;
+              }
+              #volume-slider::-webkit-slider-runnable-track {
+                  background: #535353;
+              }
+              #volume-slider::-moz-range-track {
+                  background: #535353;
+              }
+              #volume-slider::-ms-fill-upper {
+                  background: #535353;
+              }
+              #volume-slider::before {
+                  width: var(--volume-before-width);
+              }
+
+              input[type="range"] {
+                  position: relative;
+                  -webkit-appearance: none;
+                  width: 40%;
+                  margin: 0;
+                  padding: 0;
+                  height: 19px;
+                  outline: none;
+                  background-color: transparent;
+
+              }
+              input[type="range"]:hover::-webkit-slider-thumb {
+                display:flex;
+            }
+              input[type="range"]::-webkit-slider-runnable-track {
+                  width: 100%;
+                  height: 3px;
+                  background: linear-gradient(to right, #535353 var(--buffered-width), #B3B3B3 var(--buffered-width));
+              }
+              input[type="range"]:hover::before{
+                background-color: #1DB954;
+              }
+              input[type="range"]::before {
+                  transition: background-color 100ms ease-out;
+                  position: absolute;
+                  content: "";
+                  top: 8px;
+                  left: 0;
+                  width: var(--seek-before-width);
+                  height: 3px;
+                  background-color: #B3B3B3;
+                  
+              }
+              input[type="range"]::-webkit-slider-thumb {
+                  position: relative;
+                  -webkit-appearance: none;
+                  box-sizing: content-box;
+                  height: 10px;
+                  width: 10px;
+                  border-radius: 50%;
+                  background-color: #fff;
+                  margin: -4px 0 0 0;
+                  display:none;
+              }            
+          </style>
+          <div id="audio-player-container" style="width:100vw;height:100vw;">
+            <div id="audio-tools">
+              <img id="random-icon" class="unselectable" src="images/random_unactive.png">
+              <img id="play-icon" class="unselectable" src="images/play.png">
+              <img id="loop-icon" class="unselectable" src="images/loop_unactive.png">
+            </div>
+            <div id="timeLine">
+              <p id="current-time" class="time unselectable">0:00</p> 
+              <input type="range" id="seek-slider" max="0" value="0">
+              <p id="duration" class="time unselectable">0:00</p>
+          </div>
+          <div id="volume-man">          
+            <input type="range" id="volume-slider" max="100" value="100">
+            <img id="mute-icon" class="unselectable" src="images/unmuted-3.png">
+          </div>
+
+          <audio src="" preload="metadata"></audio>
+          </div>
+          
+      </template>
+      <audio-player data-src=""></audio-player>
+        </div>
+        <div id = "toolButtons">
+          <div id ="closeBtn"><a data-text="✖"></a></div>
+          <div id="maxBtn"><a data-text="▭" ></a></div>
+          <div id="minBtn"><a data-text="─" ></a></div>
+        </div>
+
+        <script src="./js/FileManager.js"></script>
+        <script src="./js/config.js"></script>
+        <script src="./js/search.js"></script>
+        <script src="./js/audioplayer.js"></script>
+        <script src="./js/playlist.js"></script>
+        <script src="./js/playlists.js"></script>
+        <script src="./js/song.js"></script>
+  </body>
+</html>
