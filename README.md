@@ -8,6 +8,6 @@ First of all, you need to have node.js downloaded [Node.js](https://nodejs.org/e
 Then simply run in project's dir `npm install && npm start`
 
 Kind of official old page
-[Youtify](http://megaweb.borec.cz/youtify)
+[here](http://megaweb.borec.cz/youtify)
 
 Powered by ElectronJS
